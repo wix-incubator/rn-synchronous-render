@@ -60,7 +60,9 @@ class SyncSnippet extends Component {
 SyncRegistry.registerComponent('SyncSnippet', () => SyncSnippet);
 ```
 
-From the native side, the `RCCSyncRootView` would support two main actions, being created and updating its props. The main requirement we have is that these two actions will complete in the native realm **without jumping over the bridge to JavaScript**. The API for the two actions will look like:
+From the native side, the `RCCSyncRootView` would support two main actions: being created and updating its props. The main requirement we have, which is the novel thing with this approach, is that these two actions will complete in the native realm **without jumping over the bridge to JavaScript**!
+
+The API for the two actions will look like:
 
 ```objc
 NSDictionary *props = @{@"name": @"John Snow"};
