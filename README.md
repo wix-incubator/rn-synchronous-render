@@ -92,3 +92,7 @@ But how can we know which `UIManager` commands are needed? Well.. we can cheat. 
 When rendering a *synchronous* component in runtime, we're just following the recipe and not actually running the JavaScript render code. This means our synchronous component tree has to be 100% declarative. We're not allowed to place any business logic in it except passing around props.
 
 But what if our components require imperative business logic during render? We will have to implement this in native. I'm thinking about defining a new class of React Native components called "declarative components" which satisfy this requirement. Only these types of components could be used for synchronous render. We can eventually port all the core React Native components to be part of this family, just by moving any business logic they have in JavaScript to native. A bit time consuming but not difficult.
+
+## Thanks
+
+Thanks to @DanielZlotin and @bogobogo for helping bring the poc to life.
