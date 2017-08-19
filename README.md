@@ -3,7 +3,7 @@
 
 ## Why
 
-Rendering in React Native (and React in general) is *asynchronous*. Updates made to React components from the JavaScript thread are batched together periodically and sent over the React Native bridge to be performed in the native realm (on the main thread). This strategy brings performance benefits in the majority of cases but causes performance issues in some specific scenarios.
+Rendering in React Native (and React in general) is *asynchronous*. Updates made to React components from the JavaScript thread are batched together periodically and sent over the React Native bridge to be performed in the native realm (eventually on the main thread). This strategy brings performance benefits in the majority of cases but causes performance issues in some specific scenarios.
 
 One example is lists in React Native. When scrolling the list very fast, the scroll is handled in the native realm and new cells in the list must be created and populated with data as the user scrolls. Since rendering from JavaScript is asynchronous, we have to go twice over the bridge in order to layout a new cell. Once from native to JavaScript to perform the render and then back to update the native properties. This performance overhead of jumping between realms may cause fill-rate delays which users experience as flickering white cells for a short while.
 
