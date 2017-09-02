@@ -95,6 +95,12 @@ When rendering a *synchronous* component in runtime, we're just following the re
 
 But what if our components require imperative business logic during render? We will have to implement this in native. I'm thinking about defining a new class of React Native components called "declarative components" which satisfy this requirement. Only these types of components could be used for synchronous render. We can eventually port all the core React Native components to be part of this family, just by moving any business logic they have in JavaScript to native. A bit time consuming but not difficult.
 
+## Next Steps
+
+One of the most interesting use-cases relevant for applying this technique is lists. We already have an older working proof of concept for a list view in React Native which uses native row recycling and *synchronous* rendering - the code is available [here](https://github.com/wix/BindingListView/tree/better-bind).
+
+The new API presented here with a synchronous root view is much cleaner and general purpose. A nice exercise would be to take the list view proof of concept and reimplement it with synchronous root views for the rows.
+
 ## Thanks
 
 Thanks to @DanielZlotin and @bogobogo for helping bring the poc to life.
